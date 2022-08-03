@@ -14,7 +14,7 @@ public class Interfaz {
 	
 	static Scanner leer = new Scanner(System.in);
 	
-	Calendar c =new GregorianCalendar();
+	static Calendar c = new GregorianCalendar();
 	
 	public static void lectura() {
 		System.out.println("Bienvenido.");
@@ -91,8 +91,21 @@ public class Interfaz {
 	    e.setNombre(leer.nextLine());
 	    		
 		System.out.println("Fecha de nacimiento:");
+		System.out.println("Dia: ");
+		int tempDay = leer.nextInt();
+		System.out.println("Mes: "
+				+ "1. Enero         2. Febrero"
+				+ "3. Marzo         4. Abril "
+				+ "5. Mayo          6. Junio"
+				+ "7. Julio         8. Agosto"
+				+ "9. Semptiembre  10. Octubte"
+				+ "11. Noviembre   12. Diciembre" );
+		int tempMonth = leer.nextInt();
+		System.out.println("Año");
+		int tempYear = leer.nextInt();
 		
-		e.setFechaNacimiento(null);
+		c.set(tempYear, tempMonth, tempDay);
+		e.setFechaNacimiento(c);
 		
 		System.out.println("Edad: ");
 		e.setEdad(leer.nextInt());
@@ -201,7 +214,21 @@ public class Interfaz {
 	    m.setNombre(leer.nextLine());
 	    		
 		System.out.println("Fecha de nacimiento:");
+		System.out.println("Dia: ");
+		int tempDay = leer.nextInt();
+		System.out.println("Mes: "
+				+ "1. Enero         2. Febrero"
+				+ "3. Marzo         4. Abril "
+				+ "5. Mayo          6. Junio"
+				+ "7. Julio         8. Agosto"
+				+ "9. Semptiembre  10. Octubte"
+				+ "11. Noviembre   12. Diciembre" );
+		int tempMonth = leer.nextInt();
+		System.out.println("Año");
+		int tempYear = leer.nextInt();
 		
+		c.set(tempYear, tempMonth, tempDay);
+		m.setFechaNacimiento(c);
 		
 		System.out.println("Edad: ");
 		m.setEdad(leer.nextInt());
@@ -237,10 +264,32 @@ public class Interfaz {
 		m.setNumMembresia(leer.nextLong());
 		
 		System.out.println("Fecha de emision de la membresia: ");
+		System.out.println("Dia: ");
+		tempDay = leer.nextInt();
+		
+		
+		
+		System.out.println("Mes: "
+					+ "1. Enero         2. Febrero"
+					+ "3. Marzo         4. Abril "
+					+ "5. Mayo          6. Junio"
+					+ "7. Julio         8. Agosto"
+					+ "9. Semptiembre  10. Octubte"
+					+ "11. Noviembre   12. Diciembre" );
+		tempMonth = leer.nextInt();
+			
+		System.out.println("Año");
+		tempYear = leer.nextInt();
+		
+		c.set(tempYear, tempMonth, tempDay);
+		m.setFechaEmision(c);
+		
 		
 		
 		//La fecha de vencimiento debe ser 2 años posteriores a la emision.
-		Fecha de vencimiento
+		tempYear = tempYear + 2;
+		c.set(tempYear, tempMonth, tempDay);
+		m.setFechaVencimiento(c);
 		
 		
 		
