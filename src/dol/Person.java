@@ -8,15 +8,14 @@ import java.util.GregorianCalendar;
 public abstract class Person {
 	
 	protected String nombre;
-	private Calendar c = new GregorianCalendar();
 	protected int edad;
 	protected char genero;
-	private Calendar fechaNacimiento;
+	private String fechaNacimiento;
 	
 	
 	
 	
-	public Person(String nombre, Calendar fechaNacimiento, int edad, char genero) {
+	public Person(String nombre, String fechaNacimiento, int edad, char genero) {
 		super();
 		this.nombre = nombre;
 		this.fechaNacimiento = fechaNacimiento;
@@ -24,6 +23,15 @@ public abstract class Person {
 		this.genero = genero;
 	}
 	
+	
+	
+	public Person() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -32,14 +40,21 @@ public abstract class Person {
 		this.nombre = nombre;
 	}
 	
-	public Calendar getFechaNacimiento() {
+	
+
+	
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	
-	public void setFechaNacimiento(Calendar fechaNacimiento) {
+
+
+
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
+
+
+
 	public int getEdad() {
 		return edad;
 	}

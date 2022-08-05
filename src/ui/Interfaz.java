@@ -1,5 +1,6 @@
 package ui;
 
+
 import java.util.Scanner;
 import dol.Empleado;
 import dol.Miembro;
@@ -8,13 +9,17 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
+import dal.LibretaEmpleados;
+import dal.LibretaMiembros;
 
 public class Interfaz {
 	
 	static Scanner leer = new Scanner(System.in);
 	
 	static Calendar c = new GregorianCalendar();
+	
+	static LibretaEmpleados libroEmpleados = new LibretaEmpleados();
+	static LibretaMiembros libroMiembros = new LibretaMiembros();
 	
 	public static void lectura() {
 		System.out.println("Bienvenido.");
@@ -104,8 +109,10 @@ public class Interfaz {
 		System.out.println("Año");
 		int tempYear = leer.nextInt();
 		
-		c.set(tempYear, tempMonth, tempDay);
-		e.setFechaNacimiento(c);
+        String tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
+		
+		e.setFechaNacimiento(tempString);
+		
 		
 		System.out.println("Edad: ");
 		e.setEdad(leer.nextInt());
@@ -144,6 +151,24 @@ public class Interfaz {
 		e.setNumEmpleado(leer.nextLong());
 		
 		System.out.println("Fecha de ingreso.");
+		System.out.println("Dia: ");
+		tempDay = leer.nextInt();
+		System.out.println("Mes: "
+				+ "1. Enero         2. Febrero"
+				+ "3. Marzo         4. Abril "
+				+ "5. Mayo          6. Junio"
+				+ "7. Julio         8. Agosto"
+				+ "9. Semptiembre  10. Octubte"
+				+ "11. Noviembre   12. Diciembre" );
+		tempMonth = leer.nextInt();
+		System.out.println("Año");
+		tempYear = leer.nextInt();
+        
+		
+		tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
+		
+		e.setFechaIngreso(tempString);
+		
 		
 		/*Si se modifica el tipo de institucion, favor de agregar
 		 * diferentes puestos de trabajo, mediante un menu y un
@@ -155,7 +180,7 @@ public class Interfaz {
 		
 		
 		//Control errores.
-		if(listaEmpleados.add(e) == true) {
+		if(libroEmpleados.add(e) == true) {
 			System.out.println("Los datos de su empleado han sido guardados correctamente.");
 		
 		}else {
@@ -168,7 +193,7 @@ public class Interfaz {
 		
 	private static void mostrarEmpleados() {
 		
-		System.out.println();
+		System.out.println(libroEmpleados);
 		imprimirMenu();
 		
 		
@@ -227,8 +252,9 @@ public class Interfaz {
 		System.out.println("Año");
 		int tempYear = leer.nextInt();
 		
-		c.set(tempYear, tempMonth, tempDay);
-		m.setFechaNacimiento(c);
+		String tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
+		
+		m.setFechaNacimiento(tempString);
 		
 		System.out.println("Edad: ");
 		m.setEdad(leer.nextInt());
@@ -281,20 +307,22 @@ public class Interfaz {
 		System.out.println("Año");
 		tempYear = leer.nextInt();
 		
-		c.set(tempYear, tempMonth, tempDay);
-		m.setFechaEmision(c);
+		tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
+		
+		m.setFechaEmision(tempString);
 		
 		
 		
 		//La fecha de vencimiento debe ser 2 años posteriores a la emision.
 		tempYear = tempYear + 2;
-		c.set(tempYear, tempMonth, tempDay);
-		m.setFechaVencimiento(c);
+		
+		tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
+		
+		m.setFechaVencimiento(tempString);
 		
 		
-		
-		//Control de errores.
-		if(listaMiembros.add(e) == true) {
+		//Control de errors.
+		if(libroMiembros.add(m) == true) {
 			System.out.println("Los datos de su empleado han sido guardados correctamente.");
 		
 		}else {
@@ -306,7 +334,7 @@ public class Interfaz {
 		
 	private static void mostrarMiembros() {
 		
-		System.out.println();
+		System.out.println(libroMiembros);
 		imprimirMenu();
 			
 			

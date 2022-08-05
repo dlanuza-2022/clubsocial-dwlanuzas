@@ -10,23 +10,40 @@ public class Miembro extends Person{
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
 	
 	private long numMembresia;
-	Calendar c = new GregorianCalendar();
-	private Calendar fechaEmision;
-	private Calendar fechaVencimiento;
+	static Calendar c = new GregorianCalendar();
+	private String fechaEmision;
+	private String fechaVencimiento;
 	
 	
 	
 
 	
 
-	public Miembro(String nombre, Calendar fechaNacimiento, int edad, char genero, long numMembresia, Calendar c,
-			Calendar fechaEmision, Calendar fechaVencimiento) {
+	public Miembro(String nombre, String fechaNacimiento, int edad, char genero, long numMembresia, Calendar c,
+			String fechaEmision, String fechaVencimiento) {
 		super(nombre, fechaNacimiento, edad, genero);
 		this.numMembresia = numMembresia;
 		this.c = c;
 		this.fechaEmision = fechaEmision;
 		this.fechaVencimiento = fechaVencimiento;
 	}
+	
+	
+
+
+	  public Miembro(){
+	        super(" " ,  " ", 1 , 'm' );
+	        
+	    }
+	
+
+
+
+
+	
+
+
+
 
 	public long getNumMembresia() {
 		return numMembresia;
@@ -36,21 +53,38 @@ public class Miembro extends Person{
 		this.numMembresia = numMembresia;
 	}
 
-	public Calendar getFechaEmision() {
+	
+	
+	
+	
+
+	public String getFechaEmision() {
 		return fechaEmision;
 	}
 
-	public void setFechaEmision(Calendar fechaEmision) {
+
+
+
+	public void setFechaEmision(String fechaEmision) {
 		this.fechaEmision = fechaEmision;
 	}
 
-	public Calendar getFechaVencimiento() {
+
+
+
+	public String getFechaVencimiento() {
 		return fechaVencimiento;
 	}
 
-	public void setFechaVencimiento(Calendar fechaVencimiento) {
+
+
+
+	public void setFechaVencimiento(String fechaVencimiento) {
 		this.fechaVencimiento = fechaVencimiento;
 	}
+
+
+
 
 	@Override
 	public String getNombre() {
@@ -63,12 +97,12 @@ public class Miembro extends Person{
 	}
 
 	@Override
-	public Calendar getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return super.getFechaNacimiento();
 	}
 
 	@Override
-	public void setFechaNacimiento(Calendar fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		super.setFechaNacimiento(fechaNacimiento);
 	}
 

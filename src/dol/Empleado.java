@@ -8,21 +8,31 @@ import java.util.GregorianCalendar;
 public class Empleado extends Person{
 	
 	private long numEmpleado;
-	private Calendar fechaIngreso = new GregorianCalendar();
+	private String fechaIngreso;
 	private String puesto;
 	
+	Calendar c = new GregorianCalendar();
 	
 
 	
 
 
-	public Empleado(String nombre, Calendar fechaNacimiento, int edad, char genero, long numEmpleado,
-			Calendar fechaIngreso, String puesto) {
+	public Empleado(String nombre, String fechaNacimiento, int edad, char genero, long numEmpleado,
+			String fechaIngreso, String puesto) {
 		super(nombre, fechaNacimiento, edad, genero);
 		this.numEmpleado = numEmpleado;
 		this.fechaIngreso = fechaIngreso;
 		this.puesto = puesto;
 	}
+	
+	  public Empleado(){
+	        super(" " ,  " ", 1 , 'm' );
+	        
+	    }
+	
+	
+	
+
 
 
 	public long getNumEmpleado() {
@@ -35,12 +45,12 @@ public class Empleado extends Person{
 	}
 
 
-	public Calendar getFechaIngreso() {
+	public String getFechaIngreso() {
 		return fechaIngreso;
 	}
 
 
-	public void setFechaIngreso(Calendar fechaIngreso) {
+	public void setFechaIngreso(String fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 
@@ -68,13 +78,13 @@ public class Empleado extends Person{
 
 
 	@Override
-	public Calendar getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return super.getFechaNacimiento();
 	}
 
 
 	@Override
-	public void setFechaNacimiento(Calendar fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		super.setFechaNacimiento(fechaNacimiento);
 	}
 
