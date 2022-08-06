@@ -91,9 +91,9 @@ public class Interfaz {
 		
 		System.out.println("Agregar un nuevo empleado.");
 		System.out.println("Por favor, ingrese la informacion del empleado:");
-		Empleado e = new Empleado();
+		
 	    System.out.println("Nombre del empleado:");
-	    e.setNombre(leer.nextLine());
+	    String tempNombre = leer.nextLine();
 	    leer.nextLine();
 	    
 		System.out.println("Fecha de nacimiento:");
@@ -117,14 +117,15 @@ public class Interfaz {
 		
         String tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
 		
-		e.setFechaNacimiento(tempString);
+		
 		
 		
 		System.out.println("Edad: ");
-		e.setEdad(leer.nextInt());
+		int tempEdad = leer.nextInt();
 		leer.nextLine();
+		
 
-
+        char tempSexo = 'H';
 		//Peticion de gen.
 		boolean salir = false;
 		do{
@@ -136,11 +137,11 @@ public class Interfaz {
 		    int op = leer.nextInt();
 		    switch(op) {
 		    case 1:
-		    	e.setGenero('H');
+		    	tempSexo = 'H';
 		    	salir = true;
 		    	break;
 		    case 2: 
-		    	e.setGenero('M');
+		    	tempSexo = 'M';
 		    	salir = true;
 		    	break;
 		    default:
@@ -155,7 +156,7 @@ public class Interfaz {
 		 * pero si no da tiempo no hacer nada.
 		*/
 		System.out.println("Numero de empleado.");
-		e.setNumEmpleado(leer.nextLong());
+		long tempNumEmpleado = leer.nextLong();
 		leer.nextLine();
 		
 		System.out.println("Fecha de ingreso.");
@@ -175,9 +176,9 @@ public class Interfaz {
 		tempYear = leer.nextInt();
 		leer.nextLine();
 		
-		tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
+		String tempString2 = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
 		
-		e.setFechaIngreso(tempString);
+	
 		
 		
 		/*Si se modifica el tipo de institucion, favor de agregar
@@ -186,9 +187,12 @@ public class Interfaz {
 		 * 
 		 */
 		System.out.println("Puesto de trabajo.");
-		e.setPuesto(leer.nextLine());
+		String tempPuestoTrabajo = leer.nextLine();
 		leer.nextLine();
 		
+		Empleado e = new Empleado(tempNombre, tempString, tempEdad, tempSexo, tempNumEmpleado, tempString2, tempPuestoTrabajo);
+		
+		libroEmpleados.addEmpleado(e);
 		
 	    System.out.println("Los datos de su empleado han sido guardados correctamente.");
 		
@@ -198,7 +202,8 @@ public class Interfaz {
 		
 	private static void mostrarEmpleados() {
 		
-		System.out.println(libroEmpleados);
+		libroEmpleados.imprimirLista();
+		
 		imprimirMenuEmpleados();
 		
 		
@@ -239,9 +244,11 @@ public class Interfaz {
 		
 		System.out.println("Agregar un nuevo miembro.");
 		System.out.println("Por favor, ingrese la informacion del miembro:");
-		Miembro m = new Miembro();
-	    System.out.println("Nombre del miembro:");
-	    m.setNombre(leer.nextLine());
+		
+	    
+		
+		System.out.println("Nombre del miembro:");
+	    String tempNombre = leer.nextLine();
 	    leer.nextLine();
 	    		
 		System.out.println("Fecha de nacimiento:");
@@ -266,16 +273,14 @@ public class Interfaz {
 		
 		String tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
 		
-		m.setFechaNacimiento(tempString);
 		
 		System.out.println("Edad: ");
-		m.setEdad(leer.nextInt());
+		int tempEdad = leer.nextInt();
 		leer.nextLine();
+		
+        char tempSexo = 'H';
 
-
-		//Peticion de gen.
-		boolean salir = false;
-		do{
+		
 			
 			System.out.println("Genero: ");
 			System.out.println("Digite 1 o 2.");
@@ -284,23 +289,22 @@ public class Interfaz {
 		    int op = leer.nextInt();
 		    switch(op) {
 		    case 1:
-		    	m.setGenero('H');
-		    	salir = true;
+		    	 tempSexo = 'H';
+		    	
 		    	break;
 		    case 2: 
-		    	m.setGenero('M');
-		    	salir = true;
+		    	tempSexo = 'M';
+		    	
 		    	break;
 		    default:
 		    	System.out.println("Opcion invalida.");
 		    	break;
 		    
 		    }
-			
-		}while(salir == false);
+		
 		
 		System.out.println("Numero de membresia: ");
-		m.setNumMembresia(leer.nextLong());
+		long tempNumMembresia = leer.nextLong();
 		leer.nextLine();
 		
 		System.out.println("Fecha de emision de la membresia: ");
@@ -323,19 +327,21 @@ public class Interfaz {
 		tempYear = leer.nextInt();
 		leer.nextLine();
 		
-		tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
+		String tempString2 = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
 		
-		m.setFechaEmision(tempString);
+		
 		
 		
 		
 		//La fecha de vencimiento debe ser 2 años posteriores a la emision.
 		tempYear = tempYear + 2;
 		
-		tempString = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
+		String tempString3 = Integer.toString(tempDay) + '/' + Integer.toString(tempMonth) + '/' + Integer.toBinaryString(tempYear);
 		
-		m.setFechaVencimiento(tempString);
 		
+		Miembro m = new Miembro(tempNombre, tempString, tempEdad, tempSexo, tempNumMembresia, tempString2, tempString3);
+		
+		libroMiembros.addMiembro(m);
 		
 		
 	    System.out.println("Los datos de su empleado han sido guardados correctamente.");
@@ -347,7 +353,7 @@ public class Interfaz {
 		
 	private static void mostrarMiembros() {
 		
-		System.out.println(libroMiembros);
+		libroMiembros.imprimirLista();
 		imprimirMenuMiembros();
 			
 			

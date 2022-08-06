@@ -10,7 +10,7 @@ public class Miembro extends Person{
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
 	
 	private long numMembresia;
-	static Calendar c = new GregorianCalendar();
+	
 	private String fechaEmision;
 	private String fechaVencimiento;
 	
@@ -19,11 +19,10 @@ public class Miembro extends Person{
 
 	
 
-	public Miembro(String nombre, String fechaNacimiento, int edad, char genero, long numMembresia, Calendar c,
+	public Miembro(String nombre, String fechaNacimiento, int edad, char genero, long numMembresia,
 			String fechaEmision, String fechaVencimiento) {
 		super(nombre, fechaNacimiento, edad, genero);
 		this.numMembresia = numMembresia;
-		this.c = c;
 		this.fechaEmision = fechaEmision;
 		this.fechaVencimiento = fechaVencimiento;
 	}
