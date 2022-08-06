@@ -76,7 +76,7 @@ public class Interfaz {
 			mostrarEmpleados();
 			break;
 		case 3:
-			
+			imprimirMenu();
 			break;
 		default:
 			System.out.println("Opción inválida.");
@@ -192,14 +192,14 @@ public class Interfaz {
 		
 	    System.out.println("Los datos de su empleado han sido guardados correctamente.");
 		
-		
+	    imprimirMenuEmpleados();
 		
 	}
 		
 	private static void mostrarEmpleados() {
 		
 		System.out.println(libroEmpleados);
-		imprimirMenu();
+		imprimirMenuEmpleados();
 		
 		
 	}
@@ -224,7 +224,7 @@ public class Interfaz {
 			
 			break;
 		case 3:
-			
+			imprimirMenu();
 			break;
 		default:
 			System.out.println("Opción inválida.");
@@ -338,15 +338,17 @@ public class Interfaz {
 		
 		
 		
-	   System.out.println("Los datos de su empleado han sido guardados correctamente.");
+	    System.out.println("Los datos de su empleado han sido guardados correctamente.");
 		
+	    imprimirMenuMiembros();
+	    
 		
 	}
 		
 	private static void mostrarMiembros() {
 		
 		System.out.println(libroMiembros);
-		imprimirMenu();
+		imprimirMenuMiembros();
 			
 			
 	}
