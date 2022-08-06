@@ -8,13 +8,7 @@ import ui.Interfaz;
 
 public class LibretaMiembros {
 	
-    public static void main(String[] args) {
-		
-		Interfaz I = new Interfaz();
-		I.lectura();
-		
-		
-	}
+ 
     
     LinkedList<Miembro> listaMiembros = new LinkedList<Miembro>();
     
@@ -24,6 +18,7 @@ public class LibretaMiembros {
     public LinkedList<Miembro> getLista2(){
     	return listaMiembros;
     }
+    
     
     public void setLista2(LinkedList<Miembro> listaMiembros) {
     	this.listaMiembros = listaMiembros;
@@ -35,6 +30,8 @@ public class LibretaMiembros {
 		
 		return true;
 	}
+	
+	
 
 	@Override
 	public String toString() {

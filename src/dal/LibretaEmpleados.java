@@ -8,13 +8,6 @@ import ui.Interfaz;
 
 public class LibretaEmpleados {
 	
-	public static void main(String[] args) {
-		
-		Interfaz I = new Interfaz();
-		I.lectura();
-		
-		
-	}
 	
 	
 	LinkedList<Empleado> listaEmpleados = new LinkedList<Empleado>();
