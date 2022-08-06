@@ -34,5 +34,10 @@ De los empleados se requiere:
 2. Fecha de ingreso.
 3. Puesto (opciones abiertas).
 
+Participantes.
+1. Dorian Wilfred Lanuza Smith 2017-0524U
+2. Neri Alejandro Martínez González 21-30022SU
+3. Yesbelin Valesca Albarado 21-3000SU
+
 
 Gtracias por su atención. Dios les bendiga.
