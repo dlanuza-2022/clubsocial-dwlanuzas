@@ -1,75 +1,90 @@
 package dol;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
+
 
 public abstract class Person {
 	
-	protected String nombre;
-	protected int edad;
-	protected char genero;
-	private String fechaNacimiento;
+	private String firstName;
+	private String middleName;
+	private String surName;
+	private String secondSurname;
+	private String gender;
+	private Date birthDate;
 	
 	
-	
-	
-	public Person(String nombre, String fechaNacimiento, int edad, char genero) {
+	public Person(String firstName, String middleName, String surName, String secondSurName, String gender,
+			Date birthDate) {
 		super();
-		this.nombre = nombre;
-		this.fechaNacimiento = fechaNacimiento;
-		this.edad = edad;
-		this.genero = genero;
-	}
-	
-	
-	
-	public Person() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.surName = surName;
+		this.secondSurname = secondSurName;
+		this.gender = gender;
+		this.birthDate = birthDate;
 	}
 
 
+	public String getFirstName() {
+		return firstName;
+	}
 
-	public String getNombre() {
-		return nombre;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+
+	public String getSurName() {
+		return surName;
+	}
+
+
+	public void setSurName(String surName) {
+		this.surName = surName;
+	}
+
+
+	public String getSecondSurname() {
+		return secondSurname;
+	}
+
+
+	public void setSecondSurname(String secondSurName) {
+		this.secondSurname = secondSurName;
+	}
+
+
+	public String getGender() {
+		return gender;
+	}
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 	
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 	
-	
-
-	
-	public String getFechaNacimiento() {
-		return fechaNacimiento;
-	}
-
-
-
-	public void setFechaNacimiento(String fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
-
-
-
-	public int getEdad() {
-		return edad;
-	}
-	
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
-	
-	public char getGenero() {
-		return genero;
-	}
-	
-	public void setGenero(char genero) {
-		this.genero = genero;
-	}
 	
 	
 	
