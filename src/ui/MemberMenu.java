@@ -11,8 +11,7 @@ public class MemberMenu implements IMenu {
 	Menu menu = new Menu();
 	Club club = new Club(" ");
 	private String ddMMyyyy;
-	Member m = new Member(" ", " ", " ", " ", " ", DateOperator.stringToDate("24121999", ddMMyyyy));
-
+	
 	@Override
 	public void displayOptions() {
 		System.out.println("Gestión de miembros.");
@@ -25,7 +24,9 @@ public class MemberMenu implements IMenu {
 
 	@Override
 	public void show() {
+		System.out.println();
 		displayOptions();
+		System.out.println();
 		
 		short option = 0;
 		do {
@@ -33,9 +34,11 @@ public class MemberMenu implements IMenu {
 			option = sc.nextShort();
 			switch (option) {
 				case 1:
+					System.out.println("===Agregar miembro===");
 					addMember();
 					break;
 				case 2:
+					System.out.println("===Informacion de los miembros===");
 					showMembers();
 					break;
 				case 3:
@@ -51,6 +54,7 @@ public class MemberMenu implements IMenu {
 	}
 	
 public void addMember() {
+	    Member m = new Member();
 		
 		System.out.println("===Agregar nuevo empleado.===");
 		

@@ -2,6 +2,8 @@ package dol;
 
 import java.util.Date;
 
+import misc.DateOperator;
+
 public class Member extends Person implements IPerson {
 	
 	private String membershipNumber;
@@ -11,20 +13,25 @@ public class Member extends Person implements IPerson {
 	
 	
 	public Member(String firstName, String middleName, String surName, String secondSurname, String gender,
-			Date birthDate) {
-		super(firstName, middleName, surName, secondSurname, gender, birthDate);
+			Date birthDate, int age) {
+		super(firstName, middleName, surName, secondSurname, gender, birthDate, age);
 
 	}
 
 
 	public Member(String firstName, String middleName, String surName, String secondSurName, String gender,
-			Date birthDate, String membershipNumber, Date memberSince, Date membershipIssuance,
+			Date birthDate, int age, String membershipNumber, Date memberSince, Date membershipIssuance,
 			Date membershipExpiration) {
-		super(firstName, middleName, surName, secondSurName, gender, birthDate);
+		super(firstName, middleName, surName, secondSurName, gender, birthDate, age);
 		this.membershipNumber = membershipNumber;
 		this.memberSince = memberSince;
 		this.membershipIssuance = membershipIssuance;
 		this.membershipExpiration = membershipExpiration;
+	}
+	
+	public Member() {
+	
+		
 	}
 
 
@@ -71,23 +78,44 @@ public class Member extends Person implements IPerson {
 	@Override
 	public void showDataAsRow() {
 		
-		System.out.println("Miembro número: " + getMembershipNumber() + "  Primer nombre: " + getFirstName() + "  Segundo nombre:" + getMiddleName() + "  Primer apellido: " + getSurName() + "  Segundo apellido: " + getSecondSurname() + " Sexo: " + getGender() + " Fecha de nacimiento: " + getBirthDate() + " Miembro desde: " + getMemberSince() + " Fecha de inscripción: " + getMembershipIssuance() + " Fecha de vencimiento de la membresía: " + getMembershipExpiration());
+		
+        System.out.printf("%s %s %s %s %s %s %s %s %s %s",
+				getFirstName(), 
+				getMiddleName(), 
+				getSurName(), 
+				getSecondSurname(), 
+				getGender(),
+				DateOperator.dateToString(getBirthDate(), "dd/MM/yyyy"),
+				getMembershipNumber(),
+				DateOperator.dateToString(getMemberSince(), "dd/MM/yyyy"),
+				DateOperator.dateToString(getMembershipIssuance(), "dd/MM/yyyy"),
+				DateOperator.dateToString(getMembershipExpiration(), "dd/MM/yyyy"));
+		System.out.println("_______________________________________________________________________________");
 		
 	}
 
 
 	@Override
 	public void showDataAsForm() {
-		System.out.printf("\nMiembro número: %s", getMembershipNumber());
-		System.out.printf("\nPrimer nombre: %s", getFirstName());
-		System.out.printf("\nSegundo nombre: %s", getMiddleName());
-		System.out.printf("\nPrimer apellido: %s", getSurName());
-		System.out.printf("\nSegundo apellido: %s", getSecondSurname());
-		System.out.printf("\nSexo: %s", getGender());
-		System.out.printf("\nFecha de nacimiento: %D", getBirthDate());
-		System.out.printf("\nMiembro desde: %D", getMemberSince());
-	    System.out.printf("\nFecha de inscripción: %D", getMembershipIssuance());
-	    System.out.printf("\nFecha de expiración de la membresía: %D", getMembershipExpiration());
+		System.out.println();
+		System.out.printf("\nNúmero de membresía: %s Primer nombre: %s \nPrimer nombre: %s \nSegundo nombre: %s \nPrimer apellido %s \nSegundo apellido: %s \nGenero: %s \nFecha de nacimiento: $s \nEdad: %d \nFecha de entrada: %s \nPuesto de trabajo: %s", 
+				getMembershipNumber(),
+				getFirstName(), 
+				getMiddleName(), 
+				getSurName(), 
+				getSecondSurname(), 
+				getGender(),
+				DateOperator.dateToString(getBirthDate(), "dd/MM/yyyy"),
+				getAge(),
+				DateOperator.dateToString(getMemberSince(), "dd/MM/yyyy"),
+				DateOperator.dateToString(getMembershipIssuance(), "dd/MM/yyyy"),
+				DateOperator.dateToString(getMembershipExpiration(), "dd/MM/yyyy"));
+				
+				
+	   
+		System.out.println();
+	
+	
 	}
 	
 	

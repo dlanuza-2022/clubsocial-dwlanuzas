@@ -3,6 +3,7 @@ package main;
 
 import java.util.Scanner;
 
+import bll.Application;
 import dol.Club;
 import ui.Menu;
 
@@ -12,20 +13,24 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		Menu menu = new Menu();
 		
-		String nombreClub;
+		
 		
 		System.out.println("======================================================================");
 		System.out.println("===Bienvenido al programa de gestión de un club social. Bendiciones===");
 		System.out.println("======================================================================");
 		
-		System.out.println("\n¿Cúal es el nombre de su club?");
-		nombreClub = sc.nextLine();
+		do {
+			System.out.println("\n¿Cúal es el nombre de su club?");
+			Application.socialClub.setName(sc.next());
+			
+			
+		}while(Application.socialClub.getName()==null || Application.socialClub.getName()=="");
 		
-		
-		
-		System.out.println("Menu de gestión del club" + nombreClub);
 		
 		menu.show();
+		
+		
+		
 		
 ;		
 		

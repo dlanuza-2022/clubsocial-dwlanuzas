@@ -1,5 +1,6 @@
 package ui;
 
+import java.sql.Date;
 import java.util.Scanner;
 
 import dol.Employee;
@@ -8,16 +9,14 @@ import misc.DateOperator;
 
 public class EmployeeMenu implements IMenu {
 	Scanner sc = new Scanner(System.in);
-	Menu menu = new Menu();
 	private String ddMMyyyy;
-	Employee e = new Employee(" ", " ", " ", " ", " ", DateOperator.stringToDate("24121999", ddMMyyyy), " ", DateOperator.stringToDate("24121999", ddMMyyyy), " ");
 	Club club = new Club(" ");
 	
 	
 	
 	@Override
 	public void displayOptions() {
-		System.out.println("Gestión de empleados:");
+		System.out.println("Gestión de club social > Empleados");
 		System.out.println("1. Agregar nuevo empleado.");
 		System.out.println("2. Mostrar lista de empleados.");
 		System.out.println("3. Volver al menu principal.");
@@ -30,17 +29,19 @@ public class EmployeeMenu implements IMenu {
 		displayOptions();
 		
 		short option = 0;
+		Menu menu = new Menu();
+		
 		do {
 			displayOptions();
 			option = sc.nextShort();
 			switch (option) {
 				case 1:
-					
+					System.out.println("===Agregar empleado===");
 					addEmployee();
 					
 					break;
 				case 2:
-					
+					System.out.println("===Informacion de los empleados===");
 					showEmployees();
 					
 					break;
@@ -56,69 +57,42 @@ public class EmployeeMenu implements IMenu {
 	}
 	
 	public void addEmployee() {
+		Employee e = new Employee();
 		
 		System.out.println("===Agregar nuevo empleado.===");
-		System.out.print("\n-Número de empleado: ");
-		e.setEmployeeNumber(sc.nextLine());
+		
 		
 		System.out.print("\n-Nombre de empleado: ");
 		System.out.print("\n-Primer nombre: ");
-		e.setFirstName(sc.nextLine());
+		e.setFirstName(sc.next());
 		
 		System.out.print("\n-Segundo nombre: ");
-		e.setMiddleName(sc.nextLine());
+		e.setMiddleName(sc.next());
 		
 		System.out.print("\n-Primer apellido: ");
-		e.setSurName(sc.nextLine());
+		e.setSurName(sc.next());
 		
 		System.out.print("\n-Segundo Apellido: ");
-		e.setSecondSurname(sc.nextLine());
+		e.setSecondSurname(sc.next());
 		
 		System.out.print("\n-Sexo del empleado: ");
-		e.setGender(sc.nextLine());
+		e.setGender(sc.next());
 		
-		System.out.print("\n===Fecha de nacimiento===");
-		System.out.print("\n-Formato de fecha: ");
-		String tempFormat = sc.nextLine();
-		System.out.print("\n-Fecha: ");
-		String tempFecha = sc.nextLine();
+		//OJO: ¿Porque me pide cast a date?
+		Date date = (Date) DateOperator.catchValidDate(sc, "Fecha de nacimiento (dd/MM/yyyy) ");
+		e.setBirthDate(date);
 		
+		System.out.print("\n-Número de empleado: ");
+		e.setEmployeeNumber(sc.next());
 		
-		if(DateOperator.isDate(tempFecha, tempFormat) == true) {
-			
-			
-			e.setBirthDate(DateOperator.stringToDate(tempFecha, tempFormat));
-			
-			
-		}else {
-			System.out.println("Error.");
-		}
+		date = (Date) DateOperator.catchValidDate(sc, "Fecha de entrada (dd/MM/yyyy)");
+		e.setEntryDate(date);
 		
+		System.out.println("Puesto de trabajo: ");
+		e.setJob(sc.next());
 		
-		System.out.print("\n-Trabajo: ");
-		e.setJob(sc.nextLine());
-		
-		System.out.print("\n===Fecha de entrada===");
-		System.out.print("\n-Formato de fecha: ");
-		tempFormat = sc.nextLine();
-		System.out.print("\n-Fecha: ");
-		tempFecha = sc.nextLine();
-		
-		
-        if(DateOperator.isDate(tempFecha, tempFormat) == true) {
-			
-			
-			e.setEntryDate(DateOperator.stringToDate(tempFecha, tempFormat));
-			
-			
-		}else {
-			System.out.println("Error.");
-		}
-		
-		
-		
-		
-		club.addEmployee(e);
+		e.showDataAsRow();
+	
 		
 	}
 	

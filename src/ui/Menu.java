@@ -25,13 +25,17 @@ public class Menu implements IMenu {
 	public void show() {
 		short option = 0;
 		do {
+			System.out.println();
 			displayOptions();
+			System.out.println();
 			option = sc.nextShort();
 			switch (option) {
 				case 1:
+					System.out.println("Aqui se mostrara el menu ");
 					employeeMenu.show();
 					break;
 				case 2:
+					System.out.println("Aqui se mostrara el menu de miembros:");
 					memberMenu.show();
 					break;
 				case 3:

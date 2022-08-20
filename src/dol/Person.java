@@ -11,10 +11,10 @@ public abstract class Person {
 	private String secondSurname;
 	private String gender;
 	private Date birthDate;
-	
+	private int age;
 	
 	public Person(String firstName, String middleName, String surName, String secondSurName, String gender,
-			Date birthDate) {
+			Date birthDate, int age) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -22,7 +22,15 @@ public abstract class Person {
 		this.secondSurname = secondSurName;
 		this.gender = gender;
 		this.birthDate = birthDate;
+		this.age = age;
 	}
+	
+	
+	public Person() {
+		
+		
+	}
+	
 
 
 	public String getFirstName() {
@@ -82,6 +90,16 @@ public abstract class Person {
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+
+	public int getAge() {
+		return age;
+	}
+
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 	
 	
